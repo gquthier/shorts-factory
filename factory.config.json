@@ -1,0 +1,58 @@
+{
+  "creator": {
+    "name": "Creator",
+    "lang": "fr",
+    "niche": "Votre expertise et votre audience"
+  },
+  "targets": {
+    "clipsPerDay": 3,
+    "minDur": 15,
+    "maxDur": 90,
+    "minHookScore": 55,
+    "maxClipsPerSourceHour": 24,
+    "editAboveSeconds": 20,
+    "targetSeconds": 35,
+    "maxSeconds": 48
+  },
+  "glossary": [],
+  "llm": {
+    "miner": "sonnet",
+    "hooks": "sonnet",
+    "judge": "sonnet"
+  },
+  "concurrency": {
+    "io": 2,
+    "whisper": 1,
+    "llm": 1,
+    "render": 1
+  },
+  "templateMix": {
+    "youtube": [
+      "cinema-talk",
+      "selfie-headline"
+    ],
+    "live": [
+      "selfie-headline",
+      "cinema-talk"
+    ],
+    "upload": [
+      "cinema-talk",
+      "selfie-headline"
+    ],
+    "masterclass": [
+      "selfie-headline",
+      "qa-card"
+    ],
+    "qa": [
+      "qa-card",
+      "qa-card",
+      "selfie-headline"
+    ]
+  },
+  "accounts": [
+    {
+      "account": "principal",
+      "maxPerDay": 3
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+name: Tests
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: brew install ffmpeg gitleaks
+      - run: npm ci
+      - run: npm test
+        env:
+          NODE_ENV: test
+          SHORTS_SECRET_STORE: memory
+          SHORTS_DATA: ${{ runner.temp }}/shorts-test-data
+      - run: python3 -m unittest discover -s test -p '*_test.py'
+      - run: npm run check:public
+      - run: gitleaks dir --no-banner --redact .

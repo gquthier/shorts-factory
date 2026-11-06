@@ -1,0 +1,35 @@
+{
+  "name": "shorts-factory",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "factory": "node --no-warnings src/cli.ts",
+    "serve": "node --no-warnings src/server.ts",
+    "test": "node --no-warnings --test 'test/**/*.test.ts'",
+    "app": "electron .",
+    "app:build": "node electron/build.mjs",
+    "start": "electron .",
+    "setup": "node tools/setup.mjs",
+    "check:public": "node tools/check-public.mjs"
+  },
+  "dependencies": {
+    "zod": "^3.25.0"
+  },
+  "main": "electron/main.cjs",
+  "devDependencies": {
+    "electron": "^38.0.0",
+    "@electron/packager": "^18.3.6"
+  },
+  "version": "0.1.0",
+  "description": "Turn your long videos into short-form content. Local Electron studio, six formats and reusable agent skills.",
+  "license": "MIT",
+  "author": "Gauthier Thiry",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gquthier/shorts-factory.git"
+  },
+  "productName": "Shorts Factory"
+}
