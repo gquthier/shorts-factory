@@ -9,7 +9,7 @@ else {
  app.on('second-instance',()=>{if(win){if(win.isMinimized())win.restore();win.focus();}});
  function env(){
   let loginPath='';try{loginPath=execFileSync('/bin/zsh',['-lc','printf %s "$PATH"'],{encoding:'utf8',timeout:5000});}catch{}
-  return {...process.env,PATH:[loginPath,'/opt/homebrew/bin','/usr/local/bin',path.join(os.homedir(),'.local/bin'),process.env.PATH].filter(Boolean).join(':'),SHORTS_DATA:process.env.SHORTS_DATA||app.getPath('userData'),PORT:String(PORT),ELECTRON_RUN_AS_NODE:'1'};
+  return {...process.env,PATH:[loginPath,'/opt/homebrew/bin','/usr/local/bin','/opt/homebrew/opt/node@22/bin','/usr/local/opt/node@22/bin',path.join(os.homedir(),'.local/bin'),process.env.PATH].filter(Boolean).join(':'),SHORTS_DATA:process.env.SHORTS_DATA||app.getPath('userData'),PORT:String(PORT),ELECTRON_RUN_AS_NODE:'1'};
  }
  const ping=()=>new Promise(resolve=>{const req=http.get(HOME_URL+'api/state',res=>{res.resume();resolve(res.statusCode===200);});req.on('error',()=>resolve(false));req.setTimeout(1000,()=>{req.destroy();resolve(false);});});
  async function ready(){for(let i=0;i<100;i++){if(await ping())return true;await new Promise(r=>setTimeout(r,300));}return false;}

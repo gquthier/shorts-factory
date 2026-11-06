@@ -27,6 +27,7 @@ macOS, Node 22.18+, Chrome et les outils Apple sont nécessaires au pipeline com
 git clone https://github.com/gquthier/shorts-factory.git
 cd shorts-factory
 brew install node@22 ffmpeg yt-dlp whisper-cpp
+export PATH="$(brew --prefix node@22)/bin:$PATH"
 xcode-select --install # seulement si les outils Apple sont absents
 npm ci
 npm run setup

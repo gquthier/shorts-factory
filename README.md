@@ -87,6 +87,7 @@ The agent instructions also cover the [pipeline](skills/shorts-pipeline/SKILL.md
 git clone https://github.com/gquthier/shorts-factory.git
 cd shorts-factory
 brew install node@22 ffmpeg yt-dlp whisper-cpp
+export PATH="$(brew --prefix node@22)/bin:$PATH"
 xcode-select --install  # only if the Command Line Tools are missing
 npm ci
 npm run setup
