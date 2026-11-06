@@ -12,5 +12,12 @@ try {
  execFileSync('npm',['ci','--omit=dev','--ignore-scripts','--no-audit','--no-fund'],{cwd:stage,stdio:'inherit'});
  execFileSync('npm',['ci','--ignore-scripts','--no-audit','--no-fund'],{cwd:path.join(stage,'vendor/video-agent-skills/skills/short-editing/engine'),stdio:'inherit'});
  const electronVersion=JSON.parse(fs.readFileSync(path.join(root,'node_modules/electron/package.json'),'utf8')).version;
- const built=await packager({dir:stage,out:path.join(root,'dist'),name:'Shorts Factory',overwrite:true,platform:'darwin',arch:process.env.BUILD_ARCH||process.arch,electronVersion,appBundleId:'cc.bizos.shorts-factory',appVersion:'0.1.0',asar:false,prune:false});console.log(built.join('\n'));
+ const built=await packager({dir:stage,out:path.join(root,'dist'),name:'Shorts Factory',overwrite:true,platform:'darwin',arch:process.env.BUILD_ARCH||process.arch,electronVersion,appBundleId:'cc.bizos.shorts-factory',appVersion:'0.1.0',asar:false,prune:false});
+ for(const dir of built){
+  const application=path.join(dir,'Shorts Factory.app');
+  // Re-seal the renamed bundle for Apple Silicon. Ad-hoc signing is not Apple notarization.
+  execFileSync('codesign',['--force','--deep','--sign','-','--preserve-metadata=entitlements',application],{stdio:'inherit'});
+  execFileSync('codesign',['--verify','--deep','--strict',application],{stdio:'inherit'});
+ }
+ console.log(built.join('\n'));
 }finally{fs.rmSync(stage,{recursive:true,force:true});}
