@@ -17,7 +17,7 @@ La validation automatique et la publication automatique sont désactivées par d
 
 ## Tous les formats et leurs skills
 
-Les six formats sont inclus avec leur code, leurs instructions et les références du moteur : **Split board, Black frame, Cinema talk, Selfie headline, Q&A card et Type depth**. Les neuf skills du projet couvrent aussi le pipeline, les hooks et l'analyse de performance. Les treize skills du moteur d'origine sont fournis séparément avec leur licence MIT. [Catalogue](templates/README.md).
+Les sept formats sont inclus avec leur code, leurs instructions et les références du moteur : **Split board, Black frame, Cinema talk, Selfie headline, Q&A card, Type depth et Proof stack** (le visage descend et une scène sombre montre la vraie capture ou le chiffre qui compte). Les dix skills du projet couvrent aussi le pipeline, les hooks et l'analyse de performance. Les treize skills du moteur d'origine sont fournis séparément avec leur licence MIT. [Catalogue](templates/README.md).
 
 ## Installer
 
