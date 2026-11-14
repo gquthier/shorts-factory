@@ -29,7 +29,7 @@ An open-source Electron studio for turning your own videos into vertical clips.<
 
 <br><br>
 
-<sub>6 formats · 9 project skills + 13 upstream skills · word-level captions · review queue · channel analytics</sub>
+<sub>7 formats · 10 project skills + 13 upstream skills · word-level captions · review queue · channel analytics</sub>
 
 **English** · [Français](README.fr.md)
 
@@ -62,9 +62,9 @@ The software is free; provider usage may cost money. Video editing runs on your 
 - **Learn per channel.** Filter views, impressions, reach and interactions. Compare format/topic medians, correct topic labels and generate ideas from a frozen selection of evidence.
 - **A queue that can resume.** SQLite-backed jobs, provider retry handling, quality checks and local exports.
 
-## All six formats, with their skills
+## All seven formats, with their skills
 
-<img src="assets/formats.svg" alt="Six generic layout diagrams: split board, black frame, cinema talk, selfie headline, Q&A card and type depth" width="100%">
+<img src="assets/formats.svg" alt="Seven generic layout diagrams: split board, black frame, cinema talk, selfie headline, Q&A card, type depth and proof stack" width="100%">
 
 | Format | Best suited to | Instructions |
 |---|---|---|
@@ -74,6 +74,7 @@ The software is free; provider usage may cost money. Video editing runs on your 
 | **Selfie headline** | One persistent headline over a vertical clip | [Skill](skills/format-selfie-headline/SKILL.md) · [Code](templates/selfie-headline/template.mjs) |
 | **Q&A card** | Questions, teaching and interview extracts | [Skill](skills/format-qa-card/SKILL.md) · [Code](templates/qa-card/template.mjs) |
 | **Type depth** | Opening words behind the speaker and stacked emphasis | [Skill](skills/format-typo-depth/SKILL.md) · [Code](templates/typo-depth/template.mjs) |
+| **Proof stack** | A speaker who names things worth showing: real captures and counting figures above the face | [Skill](skills/format-proof-stack/SKILL.md) · [Code](templates/proof-stack/template.mjs) |
 
 The same brand configuration feeds all formats. Change colors/fonts in [`templates/brand.mjs`](templates/brand.mjs). Screen recordings fall back to a compatible layout instead of being cropped into a face format.
 

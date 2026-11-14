@@ -4,6 +4,7 @@ import { DATA, loadConfig } from '../lib/config.ts';
 import { db, getSetting } from '../lib/db.ts';
 import { requireDisk } from '../lib/disk.ts';
 import { enqueue } from '../lib/jobs.ts';
+import { proofImages } from '../lib/proof.ts';
 import { renderClip } from '../lib/render.ts';
 import { withoutTics } from '../lib/tics.ts';
 import { coldOpenRange, tightRange, type Word } from '../lib/transcript.ts';
@@ -30,6 +31,7 @@ export async function render(id: string): Promise<void> {
     beats: JSON.parse(c.beats ?? '[]') as { phrase: string; text: string; kind: 'stat' | 'label' | 'tool' }[],
     hook: showHook ? c.hook : '', question: c.question ?? undefined,
     emph: JSON.parse(c.emph ?? '[]') as string[], replace: JSON.parse(c.replacements ?? '[]') as [string, string][],
+    broll: proofImages(path.join(DATA, 'clips', id, 'proof')),
     creator: { name: cfg.creator.name, lang: cfg.creator.lang }, outDir: path.join(DATA, 'clips', id), fresh: true,
   });
   db.prepare("UPDATE clips SET status = 'rendered', template = ?, output = ?, poster = ?, qc = ?, error = NULL WHERE id = ?").run(res.template, res.output, res.poster, res.qc, id);
